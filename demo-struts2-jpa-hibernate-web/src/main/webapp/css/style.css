@@ -1,0 +1,69 @@
+img {
+	border: none;
+}
+
+.tableau {
+	font-size: 13px;
+}
+
+.tableau tr th {
+	background-color: #6297BC;
+	color: white;
+	text-align: center;
+	border: 1px black thin;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.tableau tr td {
+	border: 1px black thin;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.ligneTableau {
+	
+}
+
+.ligneTableau_hover {
+	background-color: #9EC630;
+	color: white;
+	cursor: pointer;
+}
+
+input.submit {
+	cursor: pointer;
+}
+
+label.error {
+  font-weight: bold;
+  color: #b80000;
+}
+
+
+.tdSubmit {
+	padding-top: 20px;
+	padding-left: 40px;
+}
+
+pre {
+	font-size: 11px;
+}
+
+#erreurs {
+	font-size: 12px
+}
+
+#erreurs h3 {
+	font-weight: bold;
+	font-size: 13px
+}
+
+#erreurs li {
+	color: red;
+}
+
+.errorMessage {
+	color: red;
+	font-size: 12px
+}

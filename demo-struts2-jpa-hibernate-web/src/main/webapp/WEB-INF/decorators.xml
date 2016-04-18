@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/decorators">
+
+	<!-- >excludes>
+		<pattern>*</pattern>
+	</excludes -->
+	<decorator name="template" page="templateSiteMesh.jsp">
+		<pattern>*.action</pattern>
+		<pattern>*.jsp</pattern>
+	</decorator>
+
+</decorators>

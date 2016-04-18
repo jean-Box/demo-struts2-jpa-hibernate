@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- Utilisation de Spring pour instancier les objets -->
+	<constant name="struts.objectFactory" value="spring" />
+	
+	<constant name="struts.i18n.encoding" value="utf-8" />
+
+	<package name="demo" extends="struts-default">
+		<interceptors>
+			<interceptor name="exception" class="com.capgemini.presentation.struts.interceptor.ExceptionInterceptor" />
+			
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="logger" />
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="debugging" />
+				<interceptor-ref name="profiling" />
+				<interceptor-ref name="scopedModelDriven" />
+				<interceptor-ref name="modelDriven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="actionMappingParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">^struts\..*</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+                    <param name="excludeMethods">afficher,retour,annuler,parcourir,purger</param>
+                </interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">afficher,retour,annuler,parcourir,purger</param>
+					<param name="inputResultName">afficher</param>
+				</interceptor-ref>
+				
+			</interceptor-stack>
+		</interceptors>
+		
+		<global-results>
+			<result name="erreur">erreur.jsp</result>
+			<result name="accueil">index.html</result>
+		</global-results>
+		
+		<action name="rechercheVoiture_*_*" method="{1}" class="com.capgemini.demo.action.struts.RechercheVoitureAction">
+			<param name="idSelectionne">{2}</param>
+			<result name="afficher">rechercheVoiture.jsp</result>
+			<result name="detail" type="chain">detailVoiture_afficher</result>
+		</action>
+
+		<action name="detailVoiture_*" method="{1}" class="com.capgemini.demo.action.struts.DetailVoitureAction">
+			<result name="afficher">detailVoiture.jsp</result>
+			<result name="recherche" type="chain">rechercheVoiture_afficher</result>
+			<result name="retour" type="chain">rechercheVoiture_afficher</result>
+		</action>
+		
+	</package>
+
+</struts>

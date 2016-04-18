@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	================================================= 
+	= Configuration Spring des SM de l'application =
+	=================================================
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+
+	<bean id="sm" abstract="true" class="com.capgemini.itc.sm.SM" >
+		<property name="configuration" ref="configuration"/>
+	</bean>
+	
+	<!--
+		Chaque SM fait reference a sa classe d'implementation.
+		Les SM ne definissent que des services metier ; ce sont donc des singletons (scope="singleton" par defaut).
+		Lorsque necessaire, les SM font reference a d'autres SM
+	-->
+
+	<bean id="smVoiture" 	class="com.capgemini.demo.sm.impl.SMVoitureImpl" 	parent="sm"/>
+	<bean id="smMarque" 	class="com.capgemini.demo.sm.impl.SMMarqueImpl" 	parent="sm"/>
+
+	<!-- ====================== Modele Metier ======================================== -->
+	
+	
+	<bean id="scrudVoiture" class="com.capgemini.demo.om.ScrudVoiture" scope="session" />
+	
+	
+</beans>

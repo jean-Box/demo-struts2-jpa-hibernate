@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+	<!-- ********************************* APPENDERS *********************************	-->
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</layout>
+	</appender>
+
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>D:/Temp/struts2-demo.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>    	
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%date %level %logger{35}: %message%n</pattern>
+    	</layout>
+  	</appender>
+
+
+	<!-- ********************************* LOGGERS ********************************* -->
+	<logger name="com.capgemini" level="INFO" additivity="false">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+	
+	<logger name="org.springframework" level="ERROR" additivity="false">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+	
+	<logger name="com.opensymphony" level="ERROR" additivity="false">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<!-- ********************************* ROOT ********************************* -->
+
+	<root level="INFO">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+</configuration> 

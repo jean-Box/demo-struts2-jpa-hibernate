@@ -1,0 +1,1 @@
+Ce répertoire contient les fichiers d'initialisation de la la base de données HSQLDB.
