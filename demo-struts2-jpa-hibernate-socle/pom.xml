@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  	
+  	<parent>
+		<groupId>com.capgemini</groupId>
+		<artifactId>demo-struts2-jpa-hibernate-parent</artifactId>
+		<version>0.0.1</version>
+	</parent>
+  	
+  	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.capgemini</groupId>
+	<artifactId>demo-struts2-jpa-hibernate-socle</artifactId>
+	<name>demo-struts2-jpa-hibernate-socle</name>
+	<version>${demo.version}</version>
+	<description>Projet du socle de demo</description>
+	
+	<dependencies>
+
+	</dependencies>
+	
+</project>
