@@ -1,6 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
 	<groupId>com.capgemini</groupId>
 	<artifactId>demo-struts2-jpa-hibernate-parent</artifactId>
 	<name>demo-struts2-jpa-hibernate-parent</name>
@@ -21,15 +22,26 @@
 		<over-slf4j.version>1.5.8</over-slf4j.version>
 		<aspectj.version>1.6.1</aspectj.version>
 	</properties>
-	
+	<reporting>
+	    <plugins>
+	        <plugin>
+	            <groupId>org.codehaus.mojo</groupId>
+	            <artifactId>cobertura-maven-plugin</artifactId>
+	            <version>2.6</version>
+	        </plugin>
+	    </plugins>
+    </reporting>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+                <fork>true</fork>
+                <executable>D:\Dev\outils\jdk1.7.0_21\bin\javac.exe</executable>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -219,9 +231,11 @@
 			<artifactId>xercesImpl</artifactId>
 			<version>2.8.1</version>
 		</dependency>
-	
-	
-	
+
 	</dependencies>
-	
+
+	<modules>
+		<module>../demo-struts2-jpa-hibernate-socle</module>
+		<module>../demo-struts2-jpa-hibernate-web</module>
+	</modules>
 </project>
